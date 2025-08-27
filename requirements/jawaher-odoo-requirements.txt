@@ -1,4 +1,3 @@
-(.venv) m_it_01@testing-ubuntu-s-1755252373901-s-2vcpu-4gb-amd-fra1-01:/var/www/Jawaher-Odoo-Connector-API$ cat requirements/jawaher-odoo-requirements.txt
 acme==2.9.0
 asn1crypto==1.5.1
 attrs==23.2.0
