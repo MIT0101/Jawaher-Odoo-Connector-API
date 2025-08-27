@@ -22,7 +22,10 @@ FastAPI project
    ```
 6. Install the required packages:
    ```bash
-   pip install -r requirements.txt
+   pip install -r requirements/odoo-requirements.txt
+   ```
+   ```bash
+   pip install -r requirements/api-requirements.txt
    ```
 7. Configure the environment variables:
    - Create a `.env` file in the root directory of the project.
@@ -44,6 +47,10 @@ Note that working directory should be the `src` directory of the project.
    ```bash
    uvicorn main:app --host localhost --port 8000 --reload
    ```
+   or use gunicorn with uvicorn workers:
+   ```bash
+    gunicorn -k uvicorn.workers.UvicornWorker main:app --bind localhost:8000 --reload
+    ```
 
 ## API Documentation
 The API documentation is available at [http://localhost:8000/docs](http://localhost:8000/docs) when the server is running , or you can access the interactive API documentation at [http://localhost:8000/scalar_docs](http://localhost:8000/scalar_docs).
