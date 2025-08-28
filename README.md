@@ -42,6 +42,7 @@ FastAPI project
      ODOO_CONFIG_PATH=/path/to/odoo/config
      ODOO_DB_NAME=odoo_db_name
      ```
+    - you can make `/usr/lib/python3/dist-packages` as ODOO_REPO_PATH if odoo enterprise is installed via apt package manager.
 8. Run the API server:
 Note that working directory should be the `src` directory of the project.
    ```bash
