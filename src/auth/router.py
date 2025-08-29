@@ -10,6 +10,18 @@ auth_router = APIRouter(
 
 
 # login endpoint
-@auth_router.post("/login", response_model=UserLoginResponseDto)
+@auth_router.post("/login",
+                  response_model=UserLoginResponseDto,
+                  responses={
+                      401: {
+                          "description": "Unauthorized",
+                          "content": {
+                              "application/json": {
+                                  "example": {"detail": "Invalid authentication credentials"}
+                              }
+                          },
+                      }
+                  },
+                  )
 def login(user_login_dto: UserLoginDTO, auth_service: AuthService = Depends(AuthService)):
     return auth_service.authenticate(user_login_dto)

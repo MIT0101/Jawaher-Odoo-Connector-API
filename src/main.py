@@ -9,13 +9,15 @@ from src.hello.router import router as hello_router
 from src.auth.router import auth_router
 
 app = FastAPI(
-    title="Odoo Connect API",
+    title="Odoo Connector API",
     description="API for Odoo integration",
     version="1.0.0",
 )
+app_router = APIRouter(prefix="/api/v1")
 ## Hello world router
-app.include_router(hello_router, prefix="/hello")
+# app_router.include_router(hello_router, prefix="/hello")
 
 ## Auth router
-app.include_router(auth_router, prefix="/auth")
+app_router.include_router(auth_router, prefix="/auth")
 
+app.include_router(app_router)
