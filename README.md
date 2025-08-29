@@ -22,9 +22,6 @@ FastAPI project
    ```
 6. Install the required packages:
    ```bash
-   pip install -r requirements/odoo-requirements.txt
-   ```
-   ```bash
    pip install -r requirements/api-requirements.txt
    ```
 7. Configure the environment variables:
@@ -34,6 +31,7 @@ FastAPI project
      ODOO_REPO_PATH=your_odoo_repo_full_path
      ODOO_CONFIG_PATH=your_odoo_config_full_path
      ODOO_DB_NAME=your_odoo_database_name
+     ODOO_PYTHON_SITE_PACKAGES_PATH= your_python_site_packages_path_which_odoo_use
      ```
    - Replace `your_odoo_repo_full_path`, `your_odoo_config_full_path` and `your_odoo_database_name` with the actual values.
    - Example:
@@ -41,16 +39,18 @@ FastAPI project
      ODOO_REPO_PATH=/path/to/odoo/repo
      ODOO_CONFIG_PATH=/path/to/odoo/config
      ODOO_DB_NAME=odoo_db_name
+     ODOO_PYTHON_SITE_PACKAGES_PATH = E:\odoo-18-dev\.venv\Lib\site-packages
      ```
-    - you can make `/usr/lib/python3/dist-packages` as ODOO_REPO_PATH if odoo enterprise is installed via apt package manager.
+    - you can make `/usr/lib/python3/dist-packages` as ODOO_REPO_PATH if odoo enterprise is installed via apt package manager (because the python site packages path will contain odoo and odoo-enterprise packages).
+    - You can make `ODOO_REPO_PATH` and `ODOO_PYTHON_SITE_PACKAGES_PATH` the same if odoo enterprise is installed.
 8. Run the API server:
-Note that working directory should be the `src` directory of the project.
+Navigate to the project directory and run:
    ```bash
-   uvicorn main:app --host localhost --port 8000 --reload
+   uvicorn src.main:app --host localhost --port 8000 --reload
    ```
    or use gunicorn with uvicorn workers:
    ```bash
-    gunicorn -k uvicorn.workers.UvicornWorker main:app --bind localhost:8000 --reload
+    gunicorn -k uvicorn.workers.UvicornWorker src.main:app --bind localhost:8000 --reload
     ```
 
 ## API Documentation

@@ -19,9 +19,17 @@ def initialize_odoo():
     if not repo_path.exists():
         raise FileNotFoundError(f"Odoo repo path not found: {repo_path}")
 
-    # Prepend Odoo repo path so the real framework is imported.
+    odoo_python_site_packages_path = Path(settings.odoo_python_site_packages_path)
+    if not odoo_python_site_packages_path.exists():
+        raise FileNotFoundError(f"Odoo python site-packages path not found: {odoo_python_site_packages_path}")
+
+    if str(odoo_python_site_packages_path) not in sys.path:
+        sys.path.append(str(odoo_python_site_packages_path))
+        # sys.path.insert(0, str(odoo_python_site_packages_path))
+
     if str(repo_path) not in sys.path:
-        sys.path.insert(0, str(repo_path))
+        sys.path.append(str(repo_path))
+        # sys.path.insert(0, str(repo_path))
 
     try:
         import odoo

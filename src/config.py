@@ -10,6 +10,7 @@ class Settings(BaseSettings):
     odoo_db_name: str
     odoo_config_path: FilePath  # Use Pydantic's FilePath for automatic validation
     odoo_repo_path: DirectoryPath
+    odoo_python_site_packages_path: DirectoryPath
 
     # Pydantic configuration for how to load settings
     model_config = SettingsConfigDict(
