@@ -21,9 +21,14 @@ FastAPI project
    python -m pip install --upgrade pip
    ```
 6. Install the required packages:
+for Linux/Mac:
    ```bash
-   pip install -r requirements/api-requirements.txt
+   pip install -r requirements/api-requirements-linux.txt
    ```
+for Windows:
+   ```bash
+    pip install -r requirements/api-requirements-windows.txt
+    ```
 7. Configure the environment variables:
    - Create a `.env` file in the root directory of the project.
    - Add the following environment variables to the `.env` file:
