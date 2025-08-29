@@ -66,6 +66,8 @@
     ODOO_CONFIG_PATH = /etc/odoo/odoo.conf  
     ODOO_DB_NAME = YourDBName
     ODOO_PYTHON_SITE_PACKAGES_PATH = /usr/lib/python3/dist-packages
+    
+    JWT_SECRET_KEY=your_jwt_secret_key
     ```
 
 11. deactivate the virtual environment:

@@ -37,6 +37,8 @@ FastAPI project
      ODOO_CONFIG_PATH=your_odoo_config_full_path
      ODOO_DB_NAME=your_odoo_database_name
      ODOO_PYTHON_SITE_PACKAGES_PATH= your_python_site_packages_path_which_odoo_use
+     
+     JWT_SECRET_KEY=your_jwt_secret_key
      ```
    - Replace `your_odoo_repo_full_path`, `your_odoo_config_full_path` and `your_odoo_database_name` with the actual values.
    - Example:
