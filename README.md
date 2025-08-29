@@ -21,11 +21,11 @@ FastAPI project
    python -m pip install --upgrade pip
    ```
 6. Install the required packages:
-for Linux/Mac:
+   for Linux/Mac:
    ```bash
    pip install -r requirements/api-requirements-linux.txt
    ```
-for Windows:
+   for Windows:
    ```bash
     pip install -r requirements/api-requirements-windows.txt
     ```
